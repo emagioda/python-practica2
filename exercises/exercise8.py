@@ -6,7 +6,6 @@ base de datos y se quieren combinar estas listas para que luego puedan crearse
 los objetos de la capa de negocio.
 """
 
-
 from typing import Any, List, Tuple
 
 nombre_articulos = ["ventana", "lámpara", "shampoo"]
@@ -22,6 +21,13 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
         - Utilizar la función range.
         - Utilizar índices.
     """
+    combinada = []
+    longitud = len(nombre_articulos)
+
+    for i in range(longitud):
+        combinada.append((nombres[i], precio_articulos[i]))
+
+    return tuple(combinada)
 
 
 # NO MODIFICAR - INICIO
@@ -37,7 +43,6 @@ assert combinar_basico(nombre_articulos, precio_articulos) == respuesta
 
 ###############################################################################
 
-
 id_articulos = [6852, 1459, 3578]
 
 
@@ -51,6 +56,10 @@ def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int])
 
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
+    respuesta = []
+    for i, nombre in enumerate(nombres):
+        respuesta.append((nombre, precios[i], ids[i]))
+    return tuple(respuesta)
 
 
 # NO MODIFICAR - INICIO
@@ -80,6 +89,7 @@ def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tu
         - No utilizar índices.
     Referencia: https://docs.python.org/3/library/functions.html#zip
     """
+    return tuple(zip(nombres, precios, ids))
 
 
 # NO MODIFICAR - INICIO
@@ -112,6 +122,7 @@ def combinar_zip_args(*args) -> Tuple[Any]:
 
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists  # noqa: E501
     """
+    return tuple(zip(*args))
 
 
 # NO MODIFICAR - INICIO

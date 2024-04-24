@@ -11,6 +11,10 @@ def superposicion_basico(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool
         - Utilizar dos bucles FOR anidados.
         - Utilizar dos returns.
     """
+    for i in lista_1:
+        for x in lista_2:
+            if x == i:
+                return True
 
 
 # NO MODIFICAR - INICIO
@@ -22,7 +26,6 @@ assert not superposicion_basico(test_list, (2, "world", 30.85))
 
 ###############################################################################
 
-
 def superposicion_in(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
     """Re-Escribir utilizando un sólo bucle y el operador IN.
 
@@ -30,6 +33,11 @@ def superposicion_in(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
         - Utilizar un único bucle FOR.
         - Utilizar dos returns.
     """
+    for x in lista_1:
+        if x in lista_2:
+            return True
+
+    return False
 
 
 # NO MODIFICAR - INICIO
@@ -52,6 +60,7 @@ def superposicion_any(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
 
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
+    return any(x in lista_2 for x in lista_1)
 
 
 # NO MODIFICAR - INICIO
@@ -73,6 +82,11 @@ def superposicion_set(lista_1: Iterable[Any], lista_2: Iterable[Any]) -> bool:
 
     Referencia: https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset  # noqa: E501
     """
+    conjunto_1 = set(lista_1)
+    conjunto_2 = set(lista_2)
+
+    interseccion = conjunto_1 & conjunto_2
+    return interseccion != set()
 
 
 # NO MODIFICAR - INICIO
